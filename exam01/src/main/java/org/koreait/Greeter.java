@@ -1,4 +1,4 @@
-package org.koreait.exam01;
+package org.koreait;
 
 public class Greeter {
     public void hello(String name) {
