@@ -3,6 +3,7 @@ package org.koreait.exam01;
 import org.junit.jupiter.api.Test;
 import org.koreait.global.configs.AppCtx;
 import org.koreait.global.configs.AppCtx2;
+import org.koreait.global.configs.AppCtx3;
 import org.koreait.member.controller.RequestJoin;
 import org.koreait.member.services.InfoService;
 import org.koreait.member.services.JoinService;
@@ -14,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 public class Ex01 {
     @Test
     void test1(){
-        AnnotationConfigApplicationContext ctx=new AnnotationConfigApplicationContext(AppCtx.class);
+        AnnotationConfigApplicationContext ctx=new AnnotationConfigApplicationContext(AppCtx3.class);
         JoinService service = ctx.getBean("joinService",JoinService.class);
 //        InfoService infoService=ctx.getBean("infoService",InfoService.class);
         InfoService infoService = ctx.getBean(InfoService.class);

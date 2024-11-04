@@ -13,4 +13,5 @@ private String password;
 private String userName;
 private LocalDateTime regDt;
     private LocalDateTime modDt;
+    private String regDtStr;
 }

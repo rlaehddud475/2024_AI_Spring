@@ -1,9 +1,14 @@
 package org.koreait.global.configs;
 
 import org.koreait.member.repository.MemberRepository;
+import org.koreait.member.services.InfoService;
+import org.koreait.member.services.JoinService;
 import org.koreait.member.validator.JoinValidator;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.time.format.DateTimeFormatter;
 
 @Configuration
 public class AppCtx3 {
@@ -12,7 +17,25 @@ public class AppCtx3 {
     return new JoinValidator();
 }
 @Bean
+@Qualifier("mRepo")
     public MemberRepository memberRepository(){
     return new MemberRepository();
+}
+    @Bean
+    @Qualifier("mRepo2")
+    public MemberRepository memberRepository2(){
+        return new MemberRepository();
+    }
+@Bean
+public JoinService joinService(){
+    return new JoinService();
+}
+@Bean
+    public InfoService infoService(){
+    return new InfoService();
+}
+@Bean
+public DateTimeFormatter formatter(){
+    return DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
 }
 }

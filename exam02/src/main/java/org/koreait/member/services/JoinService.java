@@ -3,15 +3,22 @@ package org.koreait.member.services;
 import org.koreait.member.controller.RequestJoin;
 import org.koreait.member.repository.MemberRepository;
 import org.koreait.member.validator.JoinValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class JoinService {
+    @Autowired
 public JoinValidator validator;
-public MemberRepository repository;
+@Autowired
+@Qualifier("mRepo")
+    public MemberRepository repository;
+    @Autowired @Qualifier("mRepo2")
+    public MemberRepository repository2;
     public void process(RequestJoin form){
 validator.validate(form);
 repository.register(form);
 }
-public JoinService(JoinValidator validator, MemberRepository repository ){
+public JoinService(){
     this.validator=validator;
     this.repository=repository;
 }

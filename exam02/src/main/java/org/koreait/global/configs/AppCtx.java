@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import java.util.Optional;
+
 @Import(AppCtx2.class)
 @Configuration
 public class AppCtx {
@@ -19,12 +21,12 @@ public class AppCtx {
     }
     @Bean
     public JoinService joinService(){
-        return new JoinService(joinValidator(),memberRepository());
+        return new JoinService();
     }
     @Bean
     public InfoService infoService(){
         InfoService service = new InfoService();
-        service.setRepository(memberRepository());
+        service.setRepository(Optional.ofNullable(memberRepository()));
         return service;
     }
 }
