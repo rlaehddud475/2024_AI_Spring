@@ -1,5 +1,6 @@
 package org.koreait.member.services;
 
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.koreait.member.controller.RequestJoin;
 import org.koreait.member.repository.MemberRepository;
@@ -11,9 +12,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class JoinService {
-
-public final JoinValidator validator;
-public final MemberRepository repository;
+    @NonNull
+public  JoinValidator validator;
+@NonNull
+public MemberRepository repository;
 
 
 /*    public JoinService(JoinValidator validator, MemberRepository repository) {

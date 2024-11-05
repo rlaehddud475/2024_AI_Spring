@@ -21,6 +21,7 @@ public class InfoService {
     public void setRepository(@Qualifier("mRepo") MemberRepository repository){
         this.repository=repository;
     }*/
+    @Autowired
     public void  setRepository(Optional<MemberRepository> opt){
         this.repository=opt.get();
     }
@@ -29,7 +30,7 @@ public class InfoService {
     public void setFormatter(@Nullable DateTimeFormatter formatter){
     this.formatter=formatter;
     }
-    @Autowired
+
     public void print(){
         List<Member> members=repository.getList();
        members.forEach(m->{
