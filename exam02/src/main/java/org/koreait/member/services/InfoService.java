@@ -29,6 +29,7 @@ public class InfoService {
     public void setFormatter(@Nullable DateTimeFormatter formatter){
     this.formatter=formatter;
     }
+    @Autowired
     public void print(){
         List<Member> members=repository.getList();
        members.forEach(m->{

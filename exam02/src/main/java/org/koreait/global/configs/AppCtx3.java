@@ -12,11 +12,12 @@ import java.time.format.DateTimeFormatter;
 
 @Configuration
 public class AppCtx3 {
-@Bean
-    public JoinValidator joinValidator(){
-    return new JoinValidator();
+    @Bean
+    public JoinValidator joinValidator() {
+        return new JoinValidator();
+    }
 }
-@Bean
+/*@Bean
 @Qualifier("mRepo")
     public MemberRepository memberRepository(){
     return new MemberRepository();
@@ -28,14 +29,14 @@ public class AppCtx3 {
     }
 @Bean
 public JoinService joinService(){
-    return new JoinService();
-}
-@Bean
+    return new JoinService();*/
+
+/*@Bean
     public InfoService infoService(){
     return new InfoService();
-}
-@Bean
+}*/
+/*@Bean
 public DateTimeFormatter formatter(){
     return DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
-}
-}
+}*/
+

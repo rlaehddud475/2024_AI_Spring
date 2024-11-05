@@ -13,7 +13,7 @@ import java.util.Optional;
 @Import(AppCtx2.class)
 @Configuration
 public class AppCtx {
-    @Bean
+ /*   @Bean
     public JoinValidator joinValidator(){return new JoinValidator();}
     @Bean
     public MemberRepository memberRepository(){
@@ -28,5 +28,5 @@ public class AppCtx {
         InfoService service = new InfoService();
         service.setRepository(Optional.ofNullable(memberRepository()));
         return service;
-    }
+    }*/
 }
