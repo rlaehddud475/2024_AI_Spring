@@ -8,5 +8,7 @@ public class Ex01 {
     @Test
     void test1(){
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+        Message m1=ctx.getBean(Message.class);
+        m1.send("안녕하세요!");
     }
 }
