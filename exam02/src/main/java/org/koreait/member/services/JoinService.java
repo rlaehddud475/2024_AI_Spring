@@ -5,7 +5,9 @@ import org.koreait.member.repository.MemberRepository;
 import org.koreait.member.validator.JoinValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
+@Service
 public class JoinService {
     @Autowired
 public JoinValidator validator;
