@@ -33,7 +33,7 @@ public class Ex01 {
         long r1= cal.factorial(10l);
         System.out.printf("r1=%d%n",r1);
         long r2= cal.factorial(10l);
-        System.out.printf("r2=%d%n",r2;
+        System.out.printf("r2=%d%n",r2);
         long r3= cal.factorial(10l);
         System.out.printf("r3=%d%n",r3);
     }
