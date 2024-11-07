@@ -1,7 +1,10 @@
 package org.koreait.exam01;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
@@ -11,6 +14,7 @@ import java.sql.SQLException;
 public class Ex02 {
 
     @Test
+    @DisplayName("tomcat jdbc를 이용한 커넥션 테스트")
     void test1(){
   /*연결 설정 S*/
     DataSource ds= new DataSource();
@@ -33,4 +37,20 @@ try( Connection conn = ds.getConnection()) {
     e.printStackTrace();
 }
     }
+    @Test
+    @DisplayName("HikariCP 를 이용한 커넥션 테스트")
+void test2(){
+    HikariConfig config=new HikariConfig();
+       config.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+       config.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE");
+        config.setUsername("spring6");
+       config.setPassword("oracle");
+
+        HikariDataSource ds=new HikariDataSource(config);
+        try (Connection conn=ds.getConnection()){
+            System.out.println(conn);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+}
 }
