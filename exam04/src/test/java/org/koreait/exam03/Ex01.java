@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package org.koreait.exam03;
 
 import org.junit.jupiter.api.Test;
@@ -37,3 +38,44 @@ public class Ex01 {
         items.forEach(System.out::println);
     }
 }
+=======
+package org.koreait.exam03;
+
+import org.junit.jupiter.api.Test;
+import org.koreait.globle.config.AppCtx;
+import org.koreait.member.entities.Member;
+import org.koreait.member.repositories.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import java.util.List;
+
+@SpringJUnitConfig
+@ContextConfiguration(classes = AppCtx.class)
+public class Ex01 {
+    @Autowired
+    private MemberRepository repository;
+
+    @Test
+    void  test1(){
+        List<Member> items=repository.findAll();
+        items.forEach(System.out::println);
+    }
+
+    @Test
+    void test2(){
+        repository.deleteById(1l);
+
+    }
+    @Test
+    void test3(){
+        Member member = repository.findByEmail("user03@test.org").get();
+        System.out.println(member);
+    }
+    @Test
+    void test4(){
+        List<Member> items=repository.findByUsernameContainingOrderBySeqDesc("사용");
+        items.forEach(System.out::println);
+    }
+}
+>>>>>>> 95a0d84a9646fb6574002e252d452f4ea20b80c0
