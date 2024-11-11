@@ -9,6 +9,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class StaticPageConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/myPage").setViewName("member/myPage");
+        registry.addViewController("/mypage").setViewName("member/mypage");
     }
 }
