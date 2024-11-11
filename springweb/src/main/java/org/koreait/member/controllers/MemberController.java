@@ -1,65 +1,42 @@
 package org.koreait.member.controllers;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequiredArgsConstructor
+@RequestMapping("/member")
 public class MemberController {
-    @Autowired
- private HttpServletRequest request;
-    @Autowired
-    private HttpServletResponse response;
-    @Autowired
-    private HttpSession session;
-/*    @GetMapping("/member/login")
-    public String login(@RequestParam("name") String name){
-        System.out.printf("name=%s%n", name);
-        return "member/form";
-    }*/
-    /*@GetMapping("/member/login")*/
-/*    public String login(HttpServletRequest request, HttpServletResponse response, HttpSession session){
-        System.out.println(request);
-        System.out.println(response);
-        System.out.println(session);
-        return "member/form";
-    }*/
-/*    public String login(){
-        System.out.println(request);
-        System.out.println(response);
-        System.out.println(session);
-        return "member/form";
-    }*/
-  /*  public ModelAndView login(){
-        ModelAndView mv= new ModelAndView();
-        mv.addObject("message","안녕하세요");
-        mv.setViewName("member/form");
-        return mv;
-    }*/
 
-    @GetMapping("member/login")
-    public String login(Model model){
-        model.addAttribute("message", "안녕하세요");
+/*@RequestMapping(path = {"/member/login","user/login"},method = {RequestMethod.GET,RequestMethod.POST})
+    public String login(){
+        return "member/form";
+    }*/
+    /*@GetMapping(path = "/login", params = "type")*/
+    @GetMapping("/login")
+    public String login(){
         return "member/form";
     }
-    @PostMapping("member/login")
-    public String loginPs(RequestLogin form){
-        System.out.println(form);
-        return "member/form";
+    @PostMapping("/login")
+    public String loginPs(){
+        return "member/joinForm";
     }
-   /*  @PostMapping("/member/login")
-    public String loginps(@RequestParam("email") String email,@RequestParam("password") String pass,@RequestParam(value = "saveEmail", required = false) boolean saveEmail){
-         System.out.println("회원가입 처리쪽 유입");
-         System.out.printf("email=%s, password=%s, saveEmail%s%n",email,pass,saveEmail);
-        return "member/form";
-     }*/
+    @GetMapping("/join")
+    public String join(){
+        return "member/joinForm";
+
+    }
+    @PostMapping("/join")
+    public String joinPs(RequestJoin form/*, Model model*/){
+        /*회원가입 처리 완료후 주소이동(로그인 페이지)
+        * 응답해더 Location:/springweb/member/login
+        * response.sendRedirect(request.getContextPath()+"/member/login);
+        * */
+        System.out.println(form);//커멘드 객체는 자동으로 EL속성으로 추가, 속성명이 클래스명, 앞자는 소문자 RequestJoin -> requestJoin
+/*        model.addAttribute("requestJoin",form);*/
+        return "/member/joinForm";
+
+    }
 }
