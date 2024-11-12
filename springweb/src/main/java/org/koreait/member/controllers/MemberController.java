@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+
 @Controller
 @RequestMapping("/member")
 public class MemberController {
@@ -34,7 +36,10 @@ public class MemberController {
         * 응답해더 Location:/springweb/member/login
         * response.sendRedirect(request.getContextPath()+"/member/login);
         * */
-        System.out.println(form);//커멘드 객체는 자동으로 EL속성으로 추가, 속성명이 클래스명, 앞자는 소문자 RequestJoin -> requestJoin
+        System.out.println(form);//커멘드 객체는 자동으로
+        String[] hobby=form.getHobby();
+        System.out.println(Arrays.toString(hobby));
+        // EL속성으로 추가, 속성명이 클래스명, 앞자는 소문자 RequestJoin -> requestJoin
 /*        model.addAttribute("requestJoin",form);*/
         return "/member/joinForm";
 
