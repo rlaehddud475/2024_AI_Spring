@@ -37,8 +37,8 @@ public class MemberController {
         * response.sendRedirect(request.getContextPath()+"/member/login);
         * */
         System.out.println(form);//커멘드 객체는 자동으로
-        String[] hobby=form.getHobby();
-        System.out.println(Arrays.toString(hobby));
+/*        String[] hobby=form.getHobby();
+        System.out.println(Arrays.toString(hobby));*/
         // EL속성으로 추가, 속성명이 클래스명, 앞자는 소문자 RequestJoin -> requestJoin
 /*        model.addAttribute("requestJoin",form);*/
         return "/member/joinForm";
